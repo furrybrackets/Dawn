@@ -1,5 +1,5 @@
 # Dawn
-Dawn is a compiled language with major similarities to TypeScript.
+Dawn is a compiled language with major similarities to ECMAScript.
 
 ## Syntax
 Dawn alleviates type-errors with a complicated and an in-depth typing system.
