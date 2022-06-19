@@ -1,0 +1,9 @@
+[package]
+name = "{{name}}"
+version = "{{version}}"
+author = "{{author}}"
+description = "{{description}}"
+license = "{{license}}"
+licenseFile = "LICENSE"
+
+[dependencies]

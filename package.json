@@ -1,0 +1,36 @@
+{
+  "name": "dawn",
+  "version": "1.0.0",
+  "description": "An LLVM compiler written entirely in TypeScript.",
+  "main": "dist/cli.cjs",
+  "source": "src/index.ts",
+  "module": "dist/cli.mjs",
+  "types": "dist/types.d.ts",
+  "repository": "https://github.com/furrybrackets/Dawn.git",
+  "author": "Peter Johnson <integral.sketch@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "chokidar": "^3.5.3",
+    "fs-extra": "^10.1.0",
+    "handlebars": "^4.7.7",
+    "inquirer": "^9.0.0",
+    "llvm-bindings": "^0.3.8",
+    "llvm-ir": "^1.8.0",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/yargs": "^17.0.10",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "build": "npx tsc",
+    "llvm-mac": "brew install cmake llvm && yarn add llvm-bindings",
+    "llvm-ubuntu": "./scripts/install-llvm-ubuntu.sh"
+  },
+  "bin": {
+    "dawn": "dist/index.js"
+  },
+  "type": "module"
+}
