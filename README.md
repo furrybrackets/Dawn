@@ -55,3 +55,49 @@ readFile("./someFile.js", (err: Error, dat: FileData) => {
   }
 })
 ```
+
+## Compilation Passes
+Passes are different steps which modify the source code. Dawn follows an expand-resolve scheme. This means that Dawn will first desugar your source code and then compile it.
+
+## Pass 1: Explicit Typing
+Dawn will explicitly type all your source code.
+*Example*
+```ts
+const x = 10;
+```
+Becomes:
+```ts
+const x: int = 10;
+```
+
+## Pass 2: Glorious Anonymous Functions (arrow-functions)
+```ts
+const x = (a: int, b: int) => {
+  return a*b;
+}
+x(2,10);
+```
+Becomes:
+```c
+// namespace
+const x = {
+  function call(a: int, b: int) {
+    return a*b;
+  };
+};
+x::call(2,10);
+```
+## Pass 3: Code-splitting
+Self-explanatory. Imports code and tree-shakes it.
+
+## Pass 4: Anonymous Function Resolution
+When passing an anonymous function as an argument, it needs to be resolved.
+
+## Pass 5: LLVM-IR Gen
+Generate LLVM-IR.
+
+## Pass 6: Optimization
+Optimize the IR code.
+
+## Pass 7: Compilation
+Compile the code
