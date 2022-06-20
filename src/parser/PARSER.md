@@ -1,10 +1,22 @@
-# Parser for Dawn
-Parser utilities for the Dawn language.
+# 🎓 Parser directory
 
-## Exports
-### `parse.ts`
+Directory housing the Parser of the Dawn language
+
+> ## Directory Information
+>
+> Name: `parser/`
+>
+> Utility: Parser utils for Dawn's frontend.
+>
+> Dependents: `main.ts`, `gen.ts`, `passes/`
+
+### Exports
+
+#### `parse.ts`
+
 Main parser file, used for parsing the input file(s).
-```ts
+
+```typescript
 export class Parser {
     constructor(code: string, options: ParserOptions) {
         // ...
@@ -51,9 +63,11 @@ export function CreateToken(type: Tokens, value: string, start: { line: number, 
 };
 ```
 
-### `textgen.ts`
+#### `textgen.ts`
+
 Used when generating a file from the AST (useful for transformation of source code)
-```ts
+
+```typescript
 export default class TextGenerator {
     constructor(ast: AST, options: TextGeneratorOptions) {
         // ...
@@ -65,11 +79,14 @@ export default class TextGenerator {
     };
 };
 ```
-### `generator.ts`
+
+#### `generator.ts`
+
 Used to generate an AST from scratch, adding nodes to the AST.
-```ts
+
+```typescript
 export default class Generator {
-    constructor(options: GeneratorOptions) {
+   Type constructor(options: GeneratorOptions) {
         // ...
     }
 
@@ -87,10 +104,11 @@ export default class Generator {
 }
 ```
 
+#### `types.ts`
 
-### `types.ts`
 Exports helper types for the other files.
-```ts
+
+```typescript
 export interface ParserOptions {
     parseComments: boolean, // default false
     exceptionDirectives: boolean, // default false
@@ -116,58 +134,66 @@ export class AST {
 };
 ```
 
-## `Parser`
+### `Parser`
+
 Parser class.
-```ts
+
+```typescript
 export class Parser {
     // ...
 }
 ```
 
-## Options:
+### Options:
 
-> # `parseComments`
+> ## `parseComments`
+>
 > Whether it should generate a `CommentNode` for each comment in the source code.
 >
-> *Default: `false`*
+> _Default: `false`_
 >
-> *Type: `boolean`*
+> _Type: `boolean`_
 
-> # `exceptionDirectives`
+> ## `exceptionDirectives`
+>
 > Whether it should not parse comments except directives: `@`(**`ch...`**) or `//@` (**`ch...`**)
 >
-> *Default: `false`*
+> _Default: `false`_
 >
-> *Type: `boolean`*
+> _Type: `boolean`_
 
-> # `generateComplexTree`
+> ## `generateComplexTree`
+>
 > Whether it should perform a pass on the simple AST to generate a more complex AST. (useful for desugaring).
 >
-> *Default: `false`*
+> _Default: `false`_
 >
-> *Type: `boolean`*
+> _Type: `boolean`_
 
-> # `positions`
+> ## `positions`
+>
 > Object defining options for adding the position of the object in the source code.
 >
-> ## `range`
+> ### `range`
+>
 > Whether it should add the start and end of the object in the source code.
 >
-> *Default: `false`*
+> _Default: `false`_
 >
-> *Type: `boolean`*
+> _Type: `boolean`_
 >
-> ## `start`
+> ### `start`
+>
 > Whether it should add the start of the object in the source code.
 >
-> *Default: `false`*
+> _Default: `false`_
 >
-> *Type: `boolean`*
+> _Type: `boolean`_
 
-## Output:
+### Output:
 
-> # `AST`
+> ## `AST`
+>
 > The AST generated from the source code.
 >
-> *Type: `AST`*
-
+> _Type: `AST`_
