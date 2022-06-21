@@ -129,8 +129,26 @@ export enum Tokens {
     THROW = "THROW",
     YEET = "YEET", // equivalent to throw
     TRY = "TRY",
-    CATCH = "CATCH"
-}
+    CATCH = "CATCH",
+    
+    // Types
+    INTTYPE = "INT", // int or i[any number less than 2^23]
+    UNSIGNEDINT = "UNSIGNED_INT", // uint or u[any number less than 2^23]
+    FLOATTYPE = "FLOAT", // float or f
+    UNSIGNEDFLOAT = "UNSIGNED_FLOAT", // ufloat,
+    FLOAT128TYPE = "FLOAT128", // float128 or f128
+    STRINGTYPE = "STRING",
+    BOOLTYPE = "BOOL",
+    FRACTIONTYPE = "FRACTION",
+    VECTORTYPE = "VECTOR",
+    MATRIXTYPE = "MATRIX",
+    CHARTYPE = "CHAR",
+    UNICODECHARTYPE = "UNICODE_CHAR",
+    POLYNOMIALTYPE = "POLYNOMIAL",
+    ARBFLOATTYPE = "ARBFLOAT", // arbitrary floating point type
+    ARBINTTYPE = "ARBINT", // arbitrary integer type
+    CSTRINGTYPE = "CSTRING", // C-style string
+};
 
 export interface Token {
     type: Tokens;
